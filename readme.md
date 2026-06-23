@@ -127,3 +127,15 @@ emotion-weather/
 
 - 情绪气象团队
 - 版本：v1.0.0
+
+<img width="303" height="572" alt="image" src="https://github.com/user-attachments/assets/e4c0f7d5-94e2-4f24-a893-c2daab63d990" />
+<img width="303" height="572" alt="image" src="https://github.com/user-attachments/assets/940f7816-e0fc-46cb-8032-bd9976284376" />
+<img width="799" height="428" alt="image" src="https://github.com/user-attachments/assets/98d7a6a8-c85c-4eb5-9f62-ac72d24033e3" />
+<img width="596" height="402" alt="image" src="https://github.com/user-attachments/assets/deb147fc-a1f7-416c-bd5c-9b2f73abd3ff" />
+<img width="598" height="436" alt="image" src="https://github.com/user-attachments/assets/ad5fa9d7-ee97-4a2e-9835-358cacbeb299" />
+
+
+
+
+
+
