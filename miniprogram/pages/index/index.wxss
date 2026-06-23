@@ -1,0 +1,156 @@
+.header {
+  margin-bottom: 30rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  color: #666666;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.greeting {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  display: block;
+}
+
+.today-card {
+  background: linear-gradient(135deg, #4A90E2 0%, #5B68FF 100%);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  color: white;
+  box-shadow: 0 10rpx 30rpx rgba(74, 144, 226, 0.3);
+}
+
+.today-card.recorded {
+  background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+}
+
+.tip {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 30rpx;
+  display: block;
+  text-align: center;
+}
+
+.weather-picker-mini {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.weather-item {
+  width: 120rpx;
+  height: 120rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+  transition: all 0.3s ease;
+}
+
+.weather-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5rpx);
+}
+
+.weather-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.recorded-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+
+.status {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 20rpx 0;
+}
+
+.streak {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.week-preview {
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.week-chart {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80rpx;
+}
+
+.day-name {
+  font-size: 24rpx;
+  color: #666666;
+  margin-bottom: 10rpx;
+}
+
+.empty-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #E5E5E5;
+  margin-top: 15rpx;
+}
+
+.quick-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.action-btn {
+  flex: 1;
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 5rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.action-icon {
+  font-size: 48rpx;
+  margin-bottom: 15rpx;
+}
+
+.action-btn text:last-child {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+}

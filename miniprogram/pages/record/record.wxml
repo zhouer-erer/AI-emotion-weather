@@ -1,0 +1,162 @@
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <view wx:if="{{step > 1}}" class="back-btn" bindtap="goBack">
+      <text>← 返回</text>
+    </view>
+    <text class="nav-title">记一记</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 步骤指示器 -->
+  <view class="step-indicator">
+    <view class="step {{step >= 1 ? 'active' : ''}}">1</view>
+    <view class="step-line {{step >= 2 ? 'active' : ''}}"></view>
+    <view class="step {{step >= 2 ? 'active' : ''}}">2</view>
+    <view class="step-line {{step >= 3 ? 'active' : ''}}"></view>
+    <view class="step {{step >= 3 ? 'active' : ''}}">3</view>
+    <view class="step-line {{step >= 4 ? 'active' : ''}}"></view>
+    <view class="step {{step >= 4 ? 'active' : ''}}">4</view>
+    <view class="step-line {{step >= 6 ? 'active' : ''}}"></view>
+    <view class="step {{step >= 6 ? 'active' : ''}}">5</view>
+  </view>
+  
+  <!-- 步骤1：选择天气 -->
+  <view wx:if="{{step == 1}}" class="step-content">
+    <text class="step-title">今天的心情天气是？</text>
+    <view class="weather-picker">
+      <view wx:for="{{weatherTypes}}" wx:key="type" 
+            class="weather-item" 
+            bindtap="selectWeather" 
+            data-weather="{{item.type}}">
+        <text class="weather-icon">{{item.icon}}</text>
+        <text class="weather-name">{{item.name}}</text>
+        <text class="weather-desc">{{item.emotion}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 步骤2：选择强度 -->
+  <view wx:if="{{step == 2}}" class="step-content">
+    <text class="step-title">这份心情的强度是？</text>
+    <view class="selected-weather">
+      <text class="weather-icon">{{selectedWeatherIcon}}</text>
+      <text class="weather-name">{{selectedWeatherName}}</text>
+    </view>
+    <view class="intensity-picker">
+      <view wx:for="{{[1,2,3,4,5]}}" wx:key="*this" 
+            class="intensity-item {{intensity >= item ? 'active' : ''}}"
+            bindtap="selectIntensity" 
+            data-intensity="{{item}}">
+        <text class="intensity-dot"></text>
+        <text class="intensity-text">{{item}}</text>
+      </view>
+    </view>
+    <view class="intensity-labels">
+      <text class="intensity-label">轻微</text>
+      <text class="intensity-label">强烈</text>
+    </view>
+  </view>
+
+  <!-- 步骤3：选择标签 -->
+  <view wx:if="{{step == 3}}" class="step-content">
+    <text class="step-title">是什么影响了你的心情？（可多选）</text>
+    <view class="tags-picker">
+      <view wx:for="{{allTags}}" wx:key="index" 
+            class="tag-item {{selectedTagIndexes[item] ? 'active' : ''}}"
+            bindtap="toggleTag" 
+            data-tag="{{item}}">
+        <text>{{item}}</text>
+        <text wx:if="{{selectedTagIndexes[item]}}" class="tag-check">✓</text>
+      </view>
+    </view>
+    <button bindtap="confirmTags" class="btn">下一步</button>
+    <text class="tag-hint">已选择 {{tags.length}} 个标签</text>
+  </view>
+  
+  <!-- 步骤4-5：AI访谈 -->
+  <view wx:if="{{step >= 4 && step <= 5}}" class="step-content">
+    <text class="step-title">AI气象员和你聊聊</text>
+    <view class="chat-box">
+      <view class="chat-avatar ai-avatar">
+        <text class="avatar-icon">🤖</text>
+        <text class="avatar-name">AI气象员</text>
+      </view>
+      <scroll-view scroll-y class="chat-container">
+        <view wx:for="{{chatHistory}}" wx:key="index" class="chat-row">
+          <!-- AI消息 -->
+          <view wx:if="{{item.type == 'ai'}}" class="chat-bubble ai-bubble">
+            <text class="bubble-content">{{item.content}}</text>
+          </view>
+          <!-- 用户消息 -->
+          <view wx:else class="chat-bubble user-bubble">
+            <text class="bubble-content">{{item.content}}</text>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="input-box">
+        <textarea placeholder="分享你的感受..." 
+               bindinput="bindUserAnswer" 
+               value="{{userAnswer}}" 
+               class="chat-input"
+               maxlength="200"/>
+        <button bindtap="submitAnswer" class="send-btn" disabled="{{!canSubmit}}" loading="{{isLoading}}">
+          <text>发送</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 步骤6：完成 -->
+  <view wx:if="{{step == 6}}" class="step-content">
+    <text class="step-title">今日气象记录</text>
+    <view class="record-card">
+      <view class="record-header">
+        <text class="weather-icon">{{selectedWeatherIcon}}</text>
+        <text class="weather-name">{{selectedWeatherName}}</text>
+        <text class="intensity-badge">强度: {{intensity}}/5</text>
+      </view>
+      <view class="record-content">
+        <text class="diary-title">今日日记</text>
+        <text class="diary-content">{{diaryText}}</text>
+      </view>
+      <view class="record-tags" wx:if="{{tags.length > 0}}">
+        <text class="tag" wx:for="{{tags}}" wx:key="index">{{item}}</text>
+      </view>
+      <view class="ai-analysis" wx:if="{{aiAnalysis}}">
+        <view class="analysis-section">
+          <text class="analysis-icon">💭</text>
+          <view class="analysis-content">
+            <text class="analysis-label">情绪类型</text>
+            <text class="analysis-value">{{aiAnalysis.emotionType}}</text>
+          </view>
+        </view>
+        <view class="analysis-section">
+          <text class="analysis-icon">🎯</text>
+          <view class="analysis-content">
+            <text class="analysis-label">压力源</text>
+            <text class="analysis-value">{{aiAnalysis.keyStressors && aiAnalysis.keyStressors.length > 0 ? aiAnalysis.keyStressors.join('、') : '日常压力'}}</text>
+          </view>
+        </view>
+        <view class="analysis-section">
+          <text class="analysis-icon">💬</text>
+          <view class="analysis-content">
+            <text class="analysis-label">AI对你说</text>
+            <text class="analysis-value">{{aiAnalysis.aiReply}}</text>
+          </view>
+        </view>
+        <view class="analysis-section">
+          <text class="analysis-icon">✨</text>
+          <view class="analysis-content">
+            <text class="analysis-label">小建议</text>
+            <text class="analysis-value">{{aiAnalysis.suggestion}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="action-buttons">
+      <button bindtap="saveRecord" class="btn btn-primary" loading="{{isLoading}}">保存记录</button>
+      <button bindtap="publishToTreehole" class="btn btn-secondary" loading="{{isLoading}}">发布到树洞</button>
+    </view>
+  </view>
+</view>

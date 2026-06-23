@@ -1,0 +1,125 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="header">
+    <text class="page-title">🌦️ 情绪气象站</text>
+    <text class="page-subtitle">记录你的每一天，了解你的情绪世界</text>
+  </view>
+
+  <!-- 月度概览卡片 -->
+  <view class="overview-card">
+    <view class="overview-item">
+      <text class="overview-value">{{monthStats.totalRecords}}</text>
+      <text class="overview-label">本月记录</text>
+    </view>
+    <view class="overview-divider"></view>
+    <view class="overview-item">
+      <text class="overview-value">{{monthStats.avgScore}}</text>
+      <text class="overview-label">平均评分</text>
+    </view>
+    <view class="overview-divider"></view>
+    <view class="overview-item">
+      <text class="overview-value">{{monthStats.highestWeather}}</text>
+      <text class="overview-label">最常心情</text>
+    </view>
+  </view>
+
+  <!-- 情绪分布 -->
+  <view class="chart-section">
+    <view class="section-header">
+      <text class="section-title">📊 情绪分布</text>
+      <text class="section-subtitle">本月情绪类型统计</text>
+    </view>
+    <view class="emotion-bars">
+      <view wx:for="{{pieChartData}}" wx:key="emotion" class="emotion-bar-item">
+        <view class="bar-label">
+          <text class="emotion-name">{{item.emotion}}</text>
+          <text class="emotion-count">{{item.count}}次 ({{item.percent}}%)</text>
+        </view>
+        <view class="bar-track">
+          <view class="bar-fill" style="width: {{item.percent}}%; background: {{item.color}};"></view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-chart" wx:if="{{pieChartData.length === 0}}">
+      <text class="empty-icon">📭</text>
+      <text>暂无情绪数据</text>
+    </view>
+  </view>
+
+  <!-- AI诊断报告 -->
+  <view class="report-section">
+    <view class="section-header">
+      <text class="section-title">🤖 AI月度诊断报告</text>
+      <text class="section-subtitle">基于你的情绪记录生成</text>
+    </view>
+    <view class="report-card" wx:if="{{aiReport}}">
+      <!-- 情绪指数评分 -->
+      <view class="score-card">
+        <view class="score-ring">
+          <text class="score-value">{{aiReport.moodScore}}</text>
+          <text class="score-label">情绪指数</text>
+        </view>
+        <view class="score-comment">
+          <text class="comment-text">{{aiReport.scoreComment}}</text>
+        </view>
+      </view>
+      
+      <view class="report-content">
+        <view class="report-item">
+          <text class="report-icon">📈</text>
+          <view class="report-info">
+            <text class="report-label">整体趋势</text>
+            <text class="report-value">{{aiReport.trend}}</text>
+          </view>
+        </view>
+        <view class="report-item">
+          <text class="report-icon">😎</text>
+          <view class="report-info">
+            <text class="report-label">主要情绪</text>
+            <text class="report-value">{{aiReport.emotionType}}</text>
+          </view>
+        </view>
+        <view class="report-item suggestion-item">
+          <text class="report-icon">💡</text>
+          <view class="report-info">
+            <text class="report-label">AI建议</text>
+            <text class="report-value">{{aiReport.suggestion}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-report" wx:if="{{!aiReport}}">
+      <text class="empty-icon">📝</text>
+      <text>暂无数据，快去记录你的心情吧！</text>
+    </view>
+  </view>
+
+
+
+  <!-- 历史记录列表 -->
+  <view class="history-section">
+    <view class="section-header">
+      <text class="section-title">📜 情绪日记</text>
+      <text class="section-subtitle">最近的心情记录</text>
+    </view>
+    <view class="history-list">
+      <view wx:for="{{historyRecords}}" wx:key="_id" class="history-item">
+        <view class="history-weather">
+          <text class="weather-icon">{{item.weatherIcon}}</text>
+          <text class="weather-name">{{item.weatherName}}</text>
+        </view>
+        <view class="history-content">
+          <text class="history-date">{{item.formattedDate}}</text>
+          <text class="history-diary">{{item.diary || item.abstract}}</text>
+        </view>
+        <view class="history-score">
+          <text class="score-value">{{item.moodScore || '--'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="empty-history" wx:if="{{historyRecords.length === 0}}">
+      <text class="empty-icon">📭</text>
+      <text>还没有心情记录</text>
+    </view>
+  </view>
+</view>

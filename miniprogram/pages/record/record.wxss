@@ -1,0 +1,524 @@
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background-color: #F5F7FA;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.back-btn {
+  font-size: 28rpx;
+  color: #4A90E2;
+  padding: 10rpx;
+}
+
+.nav-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.nav-placeholder {
+  width: 100rpx;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx 0 40rpx;
+}
+
+.step {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #666666;
+  margin: 0 15rpx;
+}
+
+.step.active {
+  background-color: #4A90E2;
+  color: white;
+}
+
+.step-line {
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #E5E5E5;
+}
+
+.step-line.active {
+  background-color: #4A90E2;
+}
+
+.step-content {
+  background: white;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.step-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 30rpx;
+  display: block;
+  text-align: center;
+}
+
+.weather-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.weather-item {
+  width: 160rpx;
+  height: 200rpx;
+  background: #F5F7FA;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+  transition: all 0.3s ease;
+  border: 2rpx solid #E5E5E5;
+}
+
+.weather-item:hover {
+  background: #E8F0FE;
+  border-color: #4A90E2;
+  transform: translateY(-5rpx);
+}
+
+.weather-icon {
+  font-size: 64rpx;
+  margin-bottom: 20rpx;
+}
+
+.weather-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+.weather-desc {
+  font-size: 20rpx;
+  color: #666666;
+  text-align: center;
+  padding: 0 10rpx;
+}
+
+/* 强度选择 */
+.selected-weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  padding: 30rpx;
+  background: #F5F7FA;
+  border-radius: 16rpx;
+}
+
+.selected-weather .weather-icon {
+  font-size: 80rpx;
+  margin-bottom: 0;
+  margin-right: 20rpx;
+}
+
+.selected-weather .weather-name {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.intensity-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.intensity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.intensity-dot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #E5E5E5;
+  margin-bottom: 10rpx;
+  transition: all 0.3s ease;
+}
+
+.intensity-item.active .intensity-dot {
+  background: #4A90E2;
+  transform: scale(1.2);
+}
+
+.intensity-text {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.intensity-item.active .intensity-text {
+  color: #4A90E2;
+  font-weight: 600;
+}
+
+.intensity-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  padding: 0 10rpx;
+}
+
+.intensity-label {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 标签选择 */
+.tags-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+  margin-bottom: 30rpx;
+}
+
+.tag-item {
+  padding: 15rpx 30rpx;
+  background: #F5F7FA;
+  border: 2rpx solid #E5E5E5;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #666666;
+  transition: all 0.3s ease;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.tag-item.active {
+  background: #E8F0FE;
+  border-color: #4A90E2;
+  color: #4A90E2;
+}
+
+.tag-check {
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.tag-hint {
+  display: block;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}
+
+/* 聊天界面 */
+.chat-box {
+  background: #F8FAFC;
+  border-radius: 20rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 500rpx;
+}
+
+.chat-avatar {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+}
+
+.avatar-icon {
+  font-size: 48rpx;
+  margin-right: 16rpx;
+}
+
+.avatar-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: white;
+}
+
+.chat-container {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto;
+  background: #F8FAFC;
+}
+
+.chat-row {
+  margin-bottom: 24rpx;
+  display: flex;
+}
+
+.chat-row:not(:last-child) {
+  margin-bottom: 24rpx;
+}
+
+.chat-bubble {
+  max-width: 75%;
+}
+
+.ai-bubble {
+  align-self: flex-start;
+}
+
+.user-bubble {
+  margin-left: auto;
+}
+
+.bubble-content {
+  padding: 20rpx 28rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  display: block;
+  word-break: break-word;
+}
+
+.ai-bubble .bubble-content {
+  background: white;
+  color: #333333;
+  border-radius: 24rpx 24rpx 24rpx 8rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.user-bubble .bubble-content {
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  color: white;
+  border-radius: 24rpx 24rpx 8rpx 24rpx;
+}
+
+.input-box {
+  display: flex;
+  align-items: flex-end;
+  padding: 16rpx;
+  background: white;
+  border-top: 2rpx solid #E8EEF5;
+  gap: 16rpx;
+}
+
+.chat-input {
+  flex: 1;
+  border: 2rpx solid #E8EEF5;
+  border-radius: 40rpx;
+  padding: 16rpx 24rpx;
+  font-size: 28rpx;
+  min-height: 80rpx;
+  max-height: 200rpx;
+  background: #F5F7FA;
+  box-sizing: border-box;
+}
+
+.send-btn {
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  color: white;
+  border-radius: 40rpx;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  border: none;
+  min-width: 100rpx;
+}
+
+.send-btn:disabled {
+  background: #CCCCCC;
+  color: #999999;
+}
+
+/* 旧样式兼容 */
+.input-container {
+  margin-top: 30rpx;
+}
+
+.input {
+  border: 2rpx solid #E5E5E5;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textarea {
+  border: 2rpx solid #E5E5E5;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 150rpx;
+  background: #F5F7FA;
+}
+
+.record-card {
+  background: #F5F7FA;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.record-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #E5E5E5;
+}
+
+.record-header .weather-icon {
+  font-size: 64rpx;
+  margin-right: 20rpx;
+  margin-bottom: 0;
+}
+
+.record-header .weather-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-right: 20rpx;
+}
+
+.intensity-badge {
+  font-size: 24rpx;
+  color: white;
+  background: #4A90E2;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.record-content {
+  margin-bottom: 20rpx;
+}
+
+.diary-title {
+  font-size: 24rpx;
+  color: #666666;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.diary-content {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.record-tags {
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.tag {
+  background: #E8F0FE;
+  color: #4A90E2;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+}
+
+.ai-analysis {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #E5E5E5;
+}
+
+.analysis-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.analysis-icon {
+  font-size: 36rpx;
+  margin-right: 15rpx;
+  margin-top: 4rpx;
+}
+
+.analysis-content {
+  flex: 1;
+}
+
+.analysis-label {
+  font-size: 24rpx;
+  color: #999999;
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.analysis-value {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn {
+  background-color: #4A90E2;
+  color: white;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 500;
+  margin: 10rpx 0;
+  width: 100%;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #4A90E2;
+  flex: 1;
+}
+
+.btn-secondary {
+  background-color: #95A5A6;
+  flex: 1;
+}
+
+.btn:disabled {
+  background-color: #CCCCCC;
+  color: #999999;
+}
+
+.isLoading {
+  opacity: 0.6;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "ai-interview",
+  "version": "1.0.0",
+  "description": "AI引导访谈云函数",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "interview",
+    "emotion"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}

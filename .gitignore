@@ -1,0 +1,16 @@
+# 微信小程序配置文件
+project.private.config.json
+
+# Node.js依赖
+node_modules/
+package-lock.json
+
+# VS Code配置
+.vscode/
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+.DS_Store

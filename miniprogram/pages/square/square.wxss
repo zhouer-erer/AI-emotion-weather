@@ -1,0 +1,275 @@
+.header {
+  text-align: center;
+  padding: 40rpx 30rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0 0 30rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: white;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.page-subtitle {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.posts-container {
+  width: 100%;
+  padding: 0 20rpx;
+}
+
+.post-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 25rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.08);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25rpx;
+}
+
+.weather-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 16rpx 32rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  min-width: 100rpx;
+}
+
+.weather-icon {
+  font-size: 40rpx;
+  margin-right: 8rpx;
+}
+
+.weather-name {
+  font-size: 28rpx;
+  color: white;
+  font-weight: 500;
+}
+
+.post-date {
+  font-size: 22rpx;
+  color: #999999;
+  margin-left: auto;
+}
+
+.post-content {
+  margin-bottom: 25rpx;
+  background: #F8F9FA;
+  border-radius: 16rpx;
+  padding: 25rpx;
+}
+
+.diary-header {
+  margin-bottom: 15rpx;
+}
+
+.diary-label {
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+.diary-text {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.ai-reply {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 16rpx;
+  padding: 25rpx;
+  margin-bottom: 25rpx;
+  border-left: 6rpx solid #4CAF50;
+}
+
+.ai-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.ai-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.ai-label {
+  font-size: 26rpx;
+  color: #2E7D32;
+  font-weight: 600;
+}
+
+.ai-content {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: center;
+  gap: 60rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #F0F0F0;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 2rpx solid #E0E0E0;
+  padding: 16rpx 32rpx;
+  border-radius: 30rpx;
+  transition: all 0.3s ease;
+}
+
+.action-btn:active {
+  background: #F5F5F5;
+  transform: scale(0.95);
+}
+
+.action-icon {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+
+.action-text {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.like-btn {
+  border-color: #FFB74D;
+}
+
+.like-btn .action-text {
+  color: #FF9800;
+}
+
+.comment-btn {
+  border-color: #90CAF9;
+}
+
+.comment-btn .action-text {
+  color: #2196F3;
+}
+
+.comments-section {
+  margin-top: 25rpx;
+  padding-top: 25rpx;
+  border-top: 2rpx dashed #E0E0E0;
+}
+
+.comments-list {
+  margin-bottom: 20rpx;
+}
+
+.comment-item {
+  background: #FAFAFA;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+}
+
+.comment-content {
+  font-size: 26rpx;
+  color: #333333;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.comment-time {
+  font-size: 20rpx;
+  color: #999999;
+}
+
+.comment-input-area {
+  display: flex;
+  gap: 15rpx;
+}
+
+.comment-input {
+  flex: 1;
+  height: 72rpx;
+  background: #F5F5F5;
+  border-radius: 36rpx;
+  padding: 0 25rpx;
+  font-size: 26rpx;
+  border: none;
+}
+
+.submit-comment-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0 35rpx;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  border: none;
+}
+
+.load-more {
+  text-align: center;
+  padding: 35rpx;
+  color: #666666;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  background: white;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.08);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80rpx 40rpx;
+  background: white;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.08);
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #333333;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.empty-hint {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.loading {
+  text-align: center;
+  padding: 40rpx;
+  color: #666666;
+  font-size: 26rpx;
+}
+
+.loading-icon {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}

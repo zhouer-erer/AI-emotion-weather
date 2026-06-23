@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- 顶部欢迎 -->
+  <view class="header">
+    <text class="date">{{todayDate}}</text>
+    <text class="greeting">{{greeting}}</text>
+  </view>
+  
+  <!-- 今日打卡卡片（核心交互） -->
+  <view class="today-card {{todayRecord ? 'recorded' : ''}}">
+    <block wx:if="{{!todayRecord}}">
+      <text class="tip">今天的心情天气是？</text>
+      <view class="weather-picker-mini">
+        <view wx:for="{{weatherTypes}}" wx:key="type" 
+              class="weather-item" 
+              bindtap="quickRecord" 
+              data-weather="{{item.type}}">
+          <text class="weather-icon">{{item.icon}}</text>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="recorded-info">
+        <text class="weather-icon">{{todayRecordWeatherIcon}}</text>
+        <text class="status">今日已打卡</text>
+        <text class="streak">连续{{streakDays}}天</text>
+      </view>
+    </block>
+  </view>
+  
+  <!-- 本周趋势预览 -->
+  <view class="week-preview">
+    <text class="section-title">本周气象</text>
+    <view class="week-chart">
+      <view wx:for="{{weekData}}" wx:key="date" class="day-item">
+        <text class="day-name">{{item.dayName}}</text>
+        <text wx:if="{{item.weather}}" class="weather-icon">{{item.weatherIcon}}</text>
+        <view wx:else class="empty-dot"></view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 快捷入口 -->
+  <view class="quick-actions">
+    <navigator url="/pages/record/record" class="action-btn" open-type="switchTab">
+      <text class="action-icon">✏️</text>
+      <text>记一记</text>
+    </navigator>
+    <navigator url="/pages/station/station" class="action-btn" open-type="switchTab">
+      <text class="action-icon">📊</text>
+      <text>气象站</text>
+    </navigator>
+    <navigator url="/pages/square/square" class="action-btn" open-type="switchTab">
+      <text class="action-icon">🌳</text>
+      <text>树洞</text>
+    </navigator>
+  </view>
+</view>

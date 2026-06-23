@@ -1,0 +1,90 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="header">
+    <text class="page-title">🌳 情绪树洞</text>
+    <text class="page-subtitle">匿名分享，温暖相伴 💝</text>
+  </view>
+  
+  <!-- 情绪流 -->
+  <view class="posts-container">
+    <view wx:for="{{posts}}" wx:key="_id" class="post-card">
+      <!-- 头部 -->
+      <view class="post-header">
+        <view class="weather-badge">
+          <text class="weather-icon">{{item.weatherIcon}}</text>
+          <text class="weather-name">{{item.weatherName}}</text>
+        </view>
+        <text class="post-date">{{item.formattedDate}}</text>
+      </view>
+      
+      <!-- 日记内容 -->
+      <view class="post-content">
+        <view class="diary-header">
+          <text class="diary-label">📝 心情日记</text>
+        </view>
+        <text class="diary-text">{{item.fullDiary || item.abstract}}</text>
+      </view>
+      
+      <!-- AI回复 -->
+      <view class="ai-reply" wx:if="{{item.aiReply}}">
+        <view class="ai-header">
+          <text class="ai-icon">🤖</text>
+          <text class="ai-label">AI气象员对你说</text>
+        </view>
+        <text class="ai-content">{{item.aiReply}}</text>
+      </view>
+      
+      <!-- 操作栏 -->
+      <view class="post-actions">
+        <button bindtap="giveSunshine" data-id="{{item._id}}" data-weather="{{item.weatherIcon}}" class="action-btn like-btn">
+          <text class="action-icon">{{item.weatherIcon}}</text>
+          <text class="action-text">{{item.likes}}</text>
+        </button>
+        <button bindtap="toggleComments" data-id="{{item._id}}" class="action-btn comment-btn">
+          <text class="action-icon">💬</text>
+          <text class="action-text">{{item.commentCount || 0}}</text>
+        </button>
+      </view>
+      
+      <!-- 评论区 -->
+      <view class="comments-section" wx:if="{{expandedComments === item._id}}">
+        <view class="comments-list" wx:if="{{item.commentCount > 0}}">
+          <view wx:for="{{item.comments}}" wx:key="index" class="comment-item">
+            <text class="comment-content">{{item.content}}</text>
+            <text class="comment-time">{{item.time}}</text>
+          </view>
+        </view>
+        <view class="comment-input-area">
+          <input 
+            placeholder="写下你的温暖留言..." 
+            value="{{item.tempComment || ''}}"
+            bindinput="onCommentInput"
+            data-id="{{item._id}}"
+            class="comment-input"
+          />
+          <button bindtap="submitComment" data-id="{{item._id}}" class="submit-comment-btn">
+            <text>发送</text>
+          </button>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 加载更多 -->
+    <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">
+      <text>🌞 加载更多心情</text>
+    </view>
+    
+    <!-- 无数据提示 -->
+    <view wx:if="{{posts.length === 0 && !isLoading}}" class="empty-state">
+      <text class="empty-icon">🌱</text>
+      <text class="empty-text">还没有情绪分享</text>
+      <text class="empty-hint">快来成为第一个分享者吧！</text>
+    </view>
+    
+    <!-- 加载中 -->
+    <view wx:if="{{isLoading}}" class="loading">
+      <text class="loading-icon">⏳</text>
+      <text>加载中...</text>
+    </view>
+  </view>
+</view>

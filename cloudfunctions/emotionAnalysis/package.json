@@ -1,0 +1,17 @@
+{
+  "name": "emotion-analysis",
+  "version": "1.0.0",
+  "description": "情绪分析云函数",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "emotion",
+    "analysis",
+    "ai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
