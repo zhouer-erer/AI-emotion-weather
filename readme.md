@@ -133,6 +133,11 @@ emotion-weather/
 <img width="799" height="428" alt="image" src="https://github.com/user-attachments/assets/98d7a6a8-c85c-4eb5-9f62-ac72d24033e3" />
 <img width="596" height="402" alt="image" src="https://github.com/user-attachments/assets/deb147fc-a1f7-416c-bd5c-9b2f73abd3ff" />
 <img width="598" height="436" alt="image" src="https://github.com/user-attachments/assets/ad5fa9d7-ee97-4a2e-9835-358cacbeb299" />
+<img width="779" height="401" alt="image" src="https://github.com/user-attachments/assets/4a31e0db-ec60-45eb-bbbb-fc076af938b1" />
+<img width="619" height="444" alt="image" src="https://github.com/user-attachments/assets/6cf8e0da-7fdd-41fd-b6bd-5c02cdc64e9e" />
+
+
+
 
 
 
